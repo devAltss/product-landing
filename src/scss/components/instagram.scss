@@ -1,0 +1,44 @@
+.instagram {
+  padding: var(--big-offset);
+
+  &__container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__left {
+    flex-shrink: 0;
+    margin-right: var(--small-offset);
+    width: 380px;
+    background-color: var(--color-eastbay);
+  }
+
+  &__title {
+    margin-bottom: var(--second-offset);
+    color: var(--color-white);
+  }
+
+  &__descr {
+    margin: 0 auto;
+    margin-bottom: var(--main-offset);
+    max-width: 260px;
+    font: var(--middle-book);
+    text-align: center;
+    color: var(--color-white);
+  }
+}
+
+.callback-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--main-offset) var(--second-offset);
+}
+
+
+
+
+
+
+

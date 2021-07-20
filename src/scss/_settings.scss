@@ -132,8 +132,6 @@ a {
 .custom-checkbox {
   @include custom-checkbox;
 
-  
-
   &__content {
     padding-left: 35px;
     font: var(--middle-book);
@@ -227,9 +225,12 @@ a {
 }
 
 .input {
+  border: none;
   border-radius: 4px;
+  padding: 0 var(--second-offset);
   width: 100%;
   height: 60px;
+  font: var(--middle-book);
   color: var(--color-main);
   background-color: var(--color-white);
   outline: none;

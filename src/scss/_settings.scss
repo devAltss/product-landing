@@ -58,6 +58,7 @@ a {
   padding: 0;
   background: transparent;
   cursor: pointer;
+  //outline: none;
 }
 
 .container {
@@ -85,9 +86,14 @@ a {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: var(--grid-gap);
+
+  @include mobile {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .btn {
+  outline: none;
   border-radius: 4px;
   padding: 22px 47px;
   font: var(--middle-regular);
@@ -96,28 +102,62 @@ a {
   &--primary {
     color: var(--color-white);
     background-color: var(--color-accent);
-    &:hover {
-      background-color: var(--color-accent-hover);
+
+    @include desktop {
+      &:hover {
+        background-color: var(--color-accent-hover);
+      }
+    }
+
+    &:active {
+      background-color: var(--color-btn-active);
     }
   }
 
   &--secondary {
     color: var(--color-white);
     background-color: var(--color-main);
-    &:hover {
-      background-color: var(--color-main-hover);
+
+    @include desktop {
+      &:hover {
+        background-color: var(--color-main-hover);
+      }
+    }
+
+    &:active {
+      background-color: var(--color-btn-active);
     }
   }
+
   &--thirdly {
     border: 1px solid var(--color-main);
     padding: 13px 45px;
     color: var(--color-main);
     background-color: transparent;
-    &:hover {
-      color: var(--color-white);
-      background-color: var(--color-main);
+    @include desktop {
+      &:hover {
+        color: var(--color-white);
+        background-color: var(--color-main);
+      }
+    }
+
+    @include mobile {
+      padding: 10px 30px; 
     }
   }
+}
+
+.btn--primary.focus-visible:focus {
+  background-color: var(--color-accent-hover); 
+}
+
+.btn--secondary.focus-visible:focus {
+  background-color: var(--color-main-hover); 
+}
+
+.btn--thirdly.focus-visible:focus {
+  color: var(--color-white);
+  background-color: var(--color-main); 
 }
 
 .title {
@@ -142,7 +182,6 @@ a {
       border-radius: 4px;
       width: 24px;
       height: 24px;
-
     }
 
     &::after {
@@ -151,8 +190,11 @@ a {
       height: 24px;
       background-image: url(../img/check.svg);
       background-size: 15px 12px;
-
     }
+  }
+  
+  .custom-checkbox__field:focus + .custom-checkbox__content::before {
+    outline: 2px solid var(--color-accent);
   }
 }
 
@@ -240,7 +282,14 @@ a {
   }
 }
 
+.form-label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
-
-
+.js-validate-error-label {
+  order: -1;
+}
 

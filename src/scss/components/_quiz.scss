@@ -1,9 +1,17 @@
+@import "../mixins";
+
+
 .quiz {
   padding: var(--big-offset) 0;
+
   &__content {
     border-radius: 4px;
     padding: var(--main-offset) 100px;
     background-color: var(--color-bg);
+
+    @include small-tablet {
+      padding: var(--main-offset);
+    }
   }
 
   &__title {
@@ -31,17 +39,59 @@
     color: var(--color-main);
   }
 
+  &__label {
+    display: inline-block;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__message {
+    border: none;
+    padding: var(--second-offset);
+    width: 465px;
+    height: 246px;
+    color: var(--color-cameo);
+    background-color: var(--color-white);
+    border-radius: 4px;
+    outline: none;
+    resize: none;
+
+    &::placeholder {
+      color: var(--color-cameo);
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
   &__answers {
     display: grid;
     grid-auto-rows: 155px;
     grid-template-columns: repeat(3, 1fr);
     padding-bottom: var(--main-offset);
     gap: var(--second-offset) 70px;
+
+    @include small-tablet {
+      gap: var(--second-offset);
+    }
+
+    @include mobile {
+      display: block;
+    }
   }
 
   &__item {
     img {
       margin-bottom: var(--smal-offset);
+    }
+
+    @include mobile {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
     }
   }
 
@@ -57,10 +107,83 @@
   justify-content: space-between;
   border-top: 1px solid var(--color-jumbo);
   padding-top: var(--second-offset);
+
+  @include mobile {
+    display: block;
+  }
 }
 
-.asd {
+.last-question {
   display: none;
+  padding-top: var(--second-offset);
+
+  &__form {
+    position: relative;
+    border-radius: 4px;
+    padding: var(--main-offset);
+    padding-right: 110px;
+    max-width: 655px;
+    background: var(--color-cameo);
+
+    @include mobile {
+      padding-right: var(--main-offset);
+    }
+  }
+
+  &__decorate {
+    position: absolute;
+    top: -8px;
+    right: -185px;
+
+    @include small-tablet {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: var(--small-offset);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 140%;
+    color: var(--color-white);
+
+    @include mobile {
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+
+  &__descr {
+    margin: 0;
+    margin-bottom: var(--second-offset);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: var(--color-white);
+  }
+
+  &__input {
+    margin-bottom: var(--small-offset);
+    max-width: 500px;
+
+    &:nth-of-type(2) {
+      margin-bottom: var(--second-offset);
+    }
+
+    @include mobile {
+      max-width: none;
+    }
+  }
+
+  &__btn {
+    min-width: 220px;
+
+    @include small-tablet {
+      width: 100%;
+      min-width: auto;
+    }
+  }
 }
 
 
